@@ -1,0 +1,16 @@
+.mat-elevation-z8, .mat-mdc-elevation-specific.mat-elevation-z8{
+  box-shadow: none!important;
+}
+
+.table-container{
+  overflow: scroll;
+  height: 92vh;
+}
+
+.selected{
+  background-color: whitesmoke;
+}
+
+.not-selected{
+  background-color: white;
+}

@@ -1,0 +1,38 @@
+<div class="table-container">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef> Date</th>
+      <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="listName">
+      <th mat-header-cell *matHeaderCellDef> List Name</th>
+      <td mat-cell *matCellDef="let element"> {{element.listName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="noEntities">
+      <th mat-header-cell *matHeaderCellDef> No. of Entities</th>
+      <td mat-cell *matCellDef="let element"> {{element.noEntities}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions</th>
+      <td mat-cell *matCellDef="let element">
+        <ng-template ngFor [ngForOf]="element.action" let-action>
+          <mat-icon>{{iconMapped[action]}}</mat-icon>
+        </ng-template>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="details">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-raised-button color="primary" >Details</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="showDetails(row)" [ngClass]="selectedRow === row.listName ? 'selected':  'not-selected'"></tr>
+  </table>
+</div>
